@@ -49,8 +49,10 @@ $title = "Главная";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Files</title>
-<link rel="stylesheet" href="/site-templates/site.css" type="text/css" />
+    <title>Главная</title>
+       <meta http-equiv="content-type" content="text/html; charset=utf-8">
+       <link href="/theme/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+       <link rel="stylesheet" href="/site-templates/site.css" type="text/css" />
        <link href="/site-templates/allrounder-3/css/template.css" rel="stylesheet" type="text/css" media="all" />
 <!--
        <link href="/site-templates/allrounder-3/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
