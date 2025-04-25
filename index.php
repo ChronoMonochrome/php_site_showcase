@@ -126,29 +126,53 @@ $title = "Главная";
                 <span>Здравствуйте, Вы зашли как <?php echo htmlspecialchars($currentUser->name); ?>!</span>
                 <a href="?logout=1">Выйти</a>
                 <br>
-                <?php if (!empty($groupedFiles)): ?>
-                    <?php krsort($groupedFiles); // Sort years in reverse order ?>
-                    <?php foreach ($groupedFiles as $year => $files): ?>
-                        <a href="#" id="a<?php echo htmlspecialchars($year); ?>" class="spoiler-trigger active">
-                            <span><?php echo htmlspecialchars($year); ?> год</span>
-                        </a>
-                        <div id="spoiler_id<?php echo htmlspecialchars($year); ?>" class="spoiler-block" style="display: block;">
-                            <ul>
-                                <?php foreach ($files as $index => $file): ?>
-                                    <li>
-                                        <a href="download.php?id=<?php echo htmlspecialchars($index); ?>" download><?php echo htmlspecialchars($file['file_title']); ?></a>
-                                        (<?php echo htmlspecialchars($file['date']); ?>)
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                        <br>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>No files found.</p>
-                <?php endif; ?>
-            <?php endif; ?>
+<?php if (!empty($groupedFiles)): ?>
+    <?php krsort($groupedFiles); // Sort years in reverse order ?>
+    <?php $first = true; ?>
+    <?php foreach ($groupedFiles as $year => $files): ?>
+        <a href="#" id="a<?php echo htmlspecialchars($year); ?>" class="spoiler-trigger <?php if ($first) echo 'active'; ?>">
+            <span><?php echo htmlspecialchars($year); ?> год</span>
+        </a>
+        <div id="spoiler_id<?php echo htmlspecialchars($year); ?>" class="spoiler-block <?php if ($first) echo 'active'; ?>" style="<?php if ($first) echo 'display: block;'; ?>">
+            <ul>
+                <?php foreach ($files as $index => $file): ?>
+                    <li>
+                        <a href="download.php?id=<?php echo htmlspecialchars($index); ?>" download><?php echo htmlspecialchars($file['file_title']); ?></a>
+                        (<?php echo htmlspecialchars($file['date']); ?>)
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <br>
+        <?php $first = false; ?>
+    <?php endforeach; ?>
+<?php else: ?>
+    <p>No files found.</p>
+<?php endif; ?>
+<?php endif; ?>
         </div> <!-- container -->
     </div> <!-- wrapper -->
+<script>
+  document.querySelectorAll('.spoiler-trigger').forEach(function(trigger) {
+    trigger.addEventListener('click', function(event) {
+      event.preventDefault();
+      const isActive = this.classList.contains('active');
+      const spoilerId = '#spoiler_id' + this.id.substring(1);
+      const spoilerBlock = document.querySelector(spoilerId);
+
+      if (spoilerBlock) {
+        this.classList.toggle('active');
+        spoilerBlock.classList.toggle('active');
+
+        // You might want to toggle the display style directly if just toggling the class isn't enough
+        if (spoilerBlock.classList.contains('active')) {
+          spoilerBlock.style.display = 'block';
+        } else {
+          spoilerBlock.style.display = 'none';
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
