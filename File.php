@@ -19,16 +19,22 @@ class File {
         return $files;
     }
 
-    public function groupFilesByYear($files) {
-        $grouped = [];
+	public function groupFilesByYear($files) {
+		$grouped = [];
 
-        foreach ($files as $file) {
-            $year = date('Y', strtotime($file['date']));
-            $grouped[$year][] = $file;
-        }
+		foreach ($files as $file) {
+			// Use DateTime to parse the date correctly
+			$dateTime = DateTime::createFromFormat('d/m/Y H:i:s', $file['date']);
+			if ($dateTime) {
+				$year = $dateTime->format('Y'); // Get the year from the DateTime object
+			} else {
+				// Handle the case where date parsing failed
+				$year = 'Unknown'; // or some other fallback
+			}
+			
+			$grouped[$year][] = $file;
+		}
 
-        return $grouped;
-    }
+		return $grouped;
+	}
 }
-?>
-

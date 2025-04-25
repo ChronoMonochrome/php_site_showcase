@@ -1,6 +1,5 @@
 <?php
 class User {
-    private $connection;
     public $login;
     public $hash;
     public $name;
@@ -8,12 +7,8 @@ class User {
     public $capabilities;
     public $dump_folder;
 
-    public function __construct($connection) {
-        $this->connection = $connection;
-    }
-
-    public function authenticate($login, $password) {
-        $stmt = $this->connection->prepare("SELECT * FROM users WHERE login = :login LIMIT 1");
+    public function authenticate($connection, $login, $password) {
+        $stmt = $connection->prepare("SELECT * FROM users WHERE login = :login LIMIT 1");
         $stmt->execute([':login' => $login]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -24,6 +19,9 @@ class User {
             $this->type = $user['type'];
             $this->capabilities = $user['capabilities'];
             $this->dump_folder = $user['dump_folder'];
+
+            $_SESSION['user'] = $this; // Store the current User object in the session
+
             return true;
         }
         return false;
@@ -45,5 +43,3 @@ class User {
         session_destroy();
     }
 }
-?>
-
