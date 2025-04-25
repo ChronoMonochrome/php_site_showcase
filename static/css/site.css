@@ -1,58 +1,731 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #444;
+}
+
+/* Create dark grey header with a white logo */
+
+header {
+  background-color: #2B2B2B;
+  height: 35px;
+  width: 100%;
+  opacity: .9;
+  margin-bottom: 10px;
+}
+
+header h1.logo {
+  margin: 0;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  float: left;
+}
+
+header h1.logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+header .greetings {
+  margin-top: 8px;
+  color: #fff;
+  float: left;
+}
+
+header .greetings:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+div.jumbo {
+  padding: 10px 0 30px 0;
+  background-color: #eeeeee;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+h2 {
+  font-size: 3em;
+  margin-top: 40px;
+  text-align: center;
+  letter-spacing: -2px;
+}
+
+h3 {
+  font-size: 1.7em;
+  font-weight: 100;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #999;
+}
+
+/* Display navigation links inline */
+
+.menu {
+  float: right;
+  margin-top: 8px;
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu li + li {
+  margin-left: 35px;
+}
+
+.menu li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Contact form */
+form.myform label {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  padding: 10px 0;
+}
+
+form.myform input {
+  width: 400px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;  
+     -moz-border-radius: 3px;  
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 1.1em;
+}
+
+form.myform textarea#message {
+  width: 500px;
+  height: 100px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;  
+     -moz-border-radius: 3px;  
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1.1em;
+}
+
+form.myform input#submit {
+  display: block;
+  -webkit-border-radius: 3px; 
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border:1px solid #d8d8d8;
+  padding: 10px; 
+  font-weight:bold; 
+  text-align: center; 
+  color: #000000; 
+  background-color: #f4f4f4;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #e5e5e5));
+  background-image: -webkit-linear-gradient(top, #f4f4f4, #e5e5e5);
+  background-image: -moz-linear-gradient(top, #f4f4f4, #e5e5e5);
+  background-image: -ms-linear-gradient(top, #f4f4f4, #e5e5e5);
+  background-image: -o-linear-gradient(top, #f4f4f4, #e5e5e5);
+  background-image: linear-gradient(top, #f4f4f4, #e5e5e5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f4f4, endColorstr=#e5e5e5);
+}
+
+form.myform input#submit:hover{
+  cursor: pointer;
+  border:1px solid #c1c1c1; 
+  background-color: #dbdbdb;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -moz-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -ms-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: -o-linear-gradient(top, #dbdbdb, #cccccc);
+  background-image: linear-gradient(top, #dbdbdb, #cccccc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#dbdbdb, endColorstr=#cccccc);
+}
+
+/* Message flashing */
+.flash {
+  background-color: #FBB0B0;
+  padding: 10px;
+  width: 400px;
+}
+
+.flash_info {
+  background-color: #B0FBB0;
+  padding: 10px;
+  max-width: 1180px;
+}
+
+.flash_error {
+  background-color: #FBB0B0;
+  padding: 10px;
+  max-width: 1180px;
+}
+
+/* Signup form */
+form.myform input {
+  width: 400px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 1.1em;
+}
+
+form.myform input#password {
+  margin-bottom: 10px;
+}
+
+._dash-undo-redo {
+  display: none;
+}
+
+
+/* HTML5 fullscreen */
+
+.demo-wrapper {
+  width: 38%;
+  margin: 0 auto;
+}
+
+.button-panel {
+  position: relative;
+}
+.button-panel img {
+  max-width: 100%;
+  border: 10px solid #fff;
+  box-shadow: 0px 0px 50px #ccc;
+}
+
+.button-panel .fs-button {
+  z-index: 100;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.button-panel .fs-button:after {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  font-family: 'ModernPictogramsNormal';
+  color: rgba(255,255,255,.5);
+  cursor: pointer;
+}
+  //content: "v";
+
+.button-panel .fs-button:hover:after {
+  color: rgb(255,255,255);
+}
+
+
+.spoiler-trigger{
+        color: #0b70db;
+        text-decoration: none;
+        padding-left: 15px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAANUlEQVQoU2PkLrj9n4EAYAQp+jpBlRGXOpA8hiJ0TaQrwuY2kDNINwnmcKLchO5LuHWEwgkAlO5FBwhFaI8AAAAASUVORK5CYII=) no-repeat 0 50%;
+}
+.spoiler-trigger.active{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKklEQVQoU2PkLrj9n4EAYAQp+jpBlRGXOpA8DRRhcxvIGTSyjqDvCIUTAEcINQcERZkIAAAAAElFTkSuQmCC);
+}
+.spoiler-trigger>span{
+        border-bottom: 1px dashed #0b70db;
+        padding:0 3px;
+}
+.spoiler-trigger:hover>span{
+        border-bottom-style: solid;
+}
+.spoiler-block{
+        display: none;
+}
+
+/*********************************************
+*** Designed by Juergen Koller         ***
+*** Designers Home: http://www.LernVid.com ***
+**********************************************/
+
+/****************** LAYOUT ******************/
+#wrapper, #foot_container {
+  margin: 0 auto;
+}
+#wrapper {
+  padding: 0 0 10px 0;
+}
+#foot_container {
+  padding:0 0 7px 0;
+  overflow:visible;
+}
+#header_container {
+    height: auto;
+  width: 100%;
+  margin:auto;
+  padding: 14px 0 0 0;
+}
+#header {
+  min-height: 120px;
+  margin: 0 -21px 15px -21px;
+  padding:0 0 0 21px;
+  position:relative;
+  background-image:url('../images/header.png');
+  background-repeat:repeat-x;
+  border-radius: 5px 5px 0 0;  
+}
+/* triangles in header */
+.heckl {  
+  width: 0; height: 0;  
+  line-height: 0;  
+  border-left: 19px solid transparent;  
+  top: 100%;  
+  left: 0;  
+  position: absolute;  
+}
+.heckr {  
+  width: 0; height: 0;  
+  line-height: 0;  
+  border-right: 19px solid transparent;  
+  top: 100%;  
+  right: 0;  
+  position: absolute;  
+}
+/* triangles in header end */
+#logo {
+  width: auto;
+  overflow:hidden;
+}
+a.imglogo {
+  line-height: normal;
+  font-size:36px;
+  display:block;
+  margin:0;
+  padding:10px 80px 10px 20px;
+}
+a.imglogo:hover {
+  text-decoration:none;
+}
+a.medialogo {
+  line-height: normal;
+  font-size:36px;
+  display:block;
+  margin:0;
+  padding:0;
+}
+a.medialogo:hover {
+  text-decoration:none;
+}
+
+#logo a.logo {
+  line-height: normal;
+  font-size:24px;
+  text-align: center;
+  display:block;
+  margin:-170px 40px 10px 180px; 
+  letter-spacing: -1px;
+  padding: 20px 40px 10px 20px;
+}
+a.logo:link {
+  text-decoration:none;
+}
+a.logo:hover {
+  text-decoration:none;
+}
+div.slogan {
+  line-height: normal;
+  font-size:32px;
+  text-align:center;
+  display:block;
+  margin:10px 40px 10px 180px;
+  padding: 0 40px 10px 10px;
+}
+#headermodule1,#headermodule2 {
+  
+}
+#topmenu_container {
+  width: 100%;
+  margin:0;
+  height: auto;
+  min-height:30px;
+}
+#topmenu {
+  height:auto;
+    margin:auto;
+}
+#topmenu ul, #topmenu ul li {
+  list-style : none;
+}
+#subhead {
+  height:33px;
+  width: 99.5%;
+  margin: 10px .2% 0 .2%;
+  overflow:hidden;
+  background-image:url('../images/subhead.png');
+  background-repeat:repeat-x;
+}
+#search {
+  position:relative;
+  float:right;
+  padding: 0 0 0 18px;
+  margin: 4px 4px 4px 0;
+  background-image:url('../images/search.png');
+  background-repeat:no-repeat;
+  background-position: left 2px;
+
+}
+#container {
+  text-align:left;
+  padding: 10px 7px 0 7px;
+  margin:auto;
+}
+#container2 {
+  text-align:left;
+  margin:auto;
+}
+#page_content {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+#leftcol {
+  width: 21%;
+  float: left;
+  margin:0;
+  padding: 0 0 10px 0;
+}
+#rightcol {
+  float: right;
+  margin:0;
+  padding: 0 0 10px 0;
+}
+/* left and right NOT loaded */
+#content_out {
+  margin: 0 0 0 0.2%;
+}
+/* just left loaded */
+#content_outleft {
+  float:right;
+}
+/* left and right loaded */
+#content_outmiddle {
+  float:left;
+  margin: 0 1%;
+}
+/* just right loaded */
+#content_outright {
+  float:left;
+}
+#maincontent {
+  float:left;
+  width: 93.6%;
+  padding: 20px 3% 20px 3%;
+  margin:10px 0 0 0;
+  min-height: 200px;
+  overflow:hidden;
+  background-image:url('../images/background.png');
+}
+.clr {
+  clear:both;
+}
+#subfoot {
+  min-height: 15px;
+  line-height: 15px;
+  width: 100%;
+}
+.copytext {
+  padding: 3px 0;
+  font-size: 11px;
+  text-align:center;
+  font-weight:bold;
+}
+#footer {
+  min-height: 80px;
+  margin: 0 -16px 0 -16px;
+  padding:0;
+  position:relative;
+  overflow:visible;
+  background-image:url('../images/footer.png');
+  background-repeat:repeat-x;
+}
+.footer-inner {
+  display:inline-block;
+  width:100%;
+  min-height:62px;
+}
+.feckl {  
+  width: 0; height: 0;  
+  line-height: 0;  
+  border-left: 14px solid transparent;  
+  top: -11px;  
+  left: 0;  
+  position: absolute;  
+}
+.feckr {  
+  width: 0; height: 0;  
+  line-height: 0;  
+  border-right: 14px solid transparent;  
+  top: -11px;  
+  right: 0;  
+  position: absolute;  
+}
+
+#scroll_up {
+  float: right;
+  width: 10%;
+}
+a#gotop {
+  display:block;
+  height:50px;
+  line-height:45px;
+  width:100%;
+  text-align:center;
+}
+a#gotop:hover {
+  text-decoration:overline;
+}
+
+.footer-bottom {
+  display:inline-block;
+  width: 100%;
+  line-height:normal;
+  font-style:italic;
+}
+span#date {
+  font-size:10px;
+  float:left;
+  padding-left:20px;
+}
+
+span#copy {
+  font-size:10px;
+  text-align:right;
+  float:right;
+  padding-right:20px;
+}
+span#copy a:hover {
+  text-decoration:none;
+}
+
+#leftcol .module, #leftcol .module_menu, #leftcol .module_text, 
+#rightcol .module, #rightcol .module_menu, #rightcol .module_text {
+  margin-top:0;
+  background-color: transparent;
+  border:0;
+}
+#leftcol .module div div, #leftcol .module_menu div div, #leftcol .module_text div div, 
+#rightcol .module div div, #rightcol .module_menu div div, #rightcol .module_text div div {
+}
+#leftcol .module div.lvround-inner, #leftcol .module_menu div.lvround-inner, #leftcol .module_text div.lvround-inner, 
+#rightcol .module div.lvround-inner, #rightcol .module_menu div.lvround-inner, #rightcol .module_text div.lvround-inner {
+  margin: 0;
+  padding: 10px 3%;
+}
+#leftcol .module div div div div, #leftcol .module_menu div div div div, #leftcol .module_text div div div div, 
+#rightcol .module div div div div, #rightcol .module_menu div div div div, #rightcol .module_text div div div div {
+  border: 0;
+}
+#leftcol h3.moduleh3, #rightcol h3.moduleh3 {
+  font-size: 120%;
+  background-image:url('../images/h3-module.png');
+  background-repeat:repeat-x;
+  border-bottom:0;
+}
+#wrapper #leftcol h3.moduleh3 {
+  min-height:35px;
+  line-height:35px;
+  margin: 10px 0 0 -20px;
+  padding: 0 10px 0 30px;
+  text-align:left;
+  position:relative;
+  border-bottom:0;
+  border-radius: 5px 5px 0 0;  
+}
+#wrapper #rightcol h3.moduleh3 {
+  min-height:30px;
+  line-height:30px;
+  margin: 10px -20px 0 0;
+  padding: 0 30px 0 10px;
+  text-align:right;
+  position:relative;  
+  border-radius: 5px 5px 0 0;  
+}
+.h3eckl {  
+  width: 0; height: 0;  
+  line-height: 0;  
+  border-left: 11px solid transparent;  
+  top: 100%;  
+  left: 0;  
+  position: absolute;  
+}
+.h3eckr {  
+  width: 0; height: 0;  
+  line-height: 0;  
+  border-right: 11px solid transparent;  
+  top: 100%;  
+  right: 0;  
+  position: absolute;  
+}
+.moduletable h3 {
+  margin: 10px 0;
+}
+/****************** MENUES ******************/
+
+/**** Mainmenu with suffix: _menu START ****/
+
+.module_menu ul.menu {
+  margin: 0;
+  padding : 0;
+  background : none;
+  list-style:none;
+}
+.module_menu ul.menu li {
+  margin : 0;
+  padding : 0 0 0 20px;
+  background : none;
+  list-style:none;
+  margin: 0;
+  background-image:url('../images/menu-li.png');
+  background-repeat:no-repeat;
+  background-position: 0 8px;
+  
+}
+.module_menu ul.menu li a, .module_menu ul.menu li span.separator {
+  display : block;
+  vertical-align : middle;
+  text-align : left;
+  text-decoration : none;
+  padding:3px 0;
+  margin:4px 0 0 0;
+  border-bottom:1px dotted #ccc;
+  clear:both;
+  overflow:visible;
+}
+.module_menu ul.menu li a img { 
+  vertical-align:middle;
+  padding-right: 5px;
+}
+.module_menu ul.menu li a span {
+  vertical-align:middle;
+}
+.module_menu ul.menu li.current a {
+  font-weight:bold;
+}
+.module_menu ul.menu li.current ul li a {
+  font-weight:normal;
+}
+.module_menu ul.menu li ul {
+  margin : 0 0 0 10px;
+  padding : 0px;
+}
+.module_menu ul.menu li li {
+  list-style: none !important;
+  margin :0;
+  padding : 0;
+  min-height:22px;
+  line-height: 22px;
+  background : none;
+}
+.module_menu ul.menu ul li a {
+  background: none;
+  font-size:90%;
+  min-height:18px;
+  line-height:18px;
+}
+/**** Mainmenu with suffix: _menu END ****/
+
+/* Mainmenu normal */
+
+ul.menu {
+  line-height:22px;
+}
+ul.menu li a span {
+  clear:both;
+  vertical-align:middle;
+}
+
+/* Mainmenu normal END */
+
+
+.input, .inputbox {
+  font-size:11px;
+  padding : 2px 3px 2px 3px;
+  margin : 2px 3px 2px 3px;
+}
+
+a, a:link, a:visited, a:active, a:focus {
+  
+  outline : none;
+  text-decoration : none;
+}
+
+.shadow-left {
+    display: block;
+  height:8px;
+  background-image:url('../images/shadow-l.png');
+  background-repeat:no-repeat;
+  background-position: left;
+}
+.shadow-right {
+    display: block;
+  height:8px;
+  background-image:url('../images/shadow-r.png');
+  background-repeat:no-repeat;
+  background-position: right;
+  margin-top:-8px;
+  margin-bottom:10px;
+}
+
+/* To disable the shadows in modules using suffix "-shadows-off" */
+.module-outer-shadows-off .shadow-left,
+.module-outer-shadows-off .shadow-right {
+  display:none;
+}
+
 	/* Template layout parameters */
-	
 
-	#wrapper {
-		margin-top:10px;
-	}
-	/* Template fonts */
-	/*
-	body {
-		font-size:13px;
 
-					font-family:Verdana, Helvetica, Sans-Serif;
-						line-height:1.3em;
-	}*/
+#wrapper {
+	margin-top:10px;
+}
 
-	/* Template colors */
-/*
-	body {
-		background-color: #FFFFFF;
-		color: #555555;
-	}
-*/
-	#wrapper, #foot_container {
-		background-color: #EFEFEF;
-		border: 1px solid #FFFFFF;
-	}
+#wrapper, #foot_container {
+	background-color: #EFEFEF;
+	border: 1px solid #FFFFFF;
+}
 
-	
-	#header {
-		background-color: #FFFFFF;
-		border-top:1px solid #222222;
-		border-left:1px solid #222222;	
-		border-right:1px solid #222222;	
-	}
-	.heckl, .heckr {  
-		border-top: 10px solid #00477D;
-	}
 
-	.feckl, .feckr {  
-		border-bottom: 10px solid #00477D;
-	}
+#header {
+	background-color: #FFFFFF;
+	border-top:1px solid #222222;
+	border-left:1px solid #222222;	
+	border-right:1px solid #222222;	
+}
+.heckl, .heckr {  
+	border-top: 10px solid #00477D;
+}
 
-	#wrapper #leftcol h3.moduleh3, #wrapper #rightcol h3.moduleh3	 {
-		background-color: #0066B3;
-		border-top:	1px solid #555555;
-		color: #FFFFFF;
-	}
-	#wrapper #leftcol h3.moduleh3	 {
-		border-left: 1px solid #999999;
-		border-right: 1px solid #555555;
-	}
-	#wrapper #rightcol h3.moduleh3	 {
-		border-right: 1px solid #999999;
-		border-left: 1px solid #555555;
-	}
-	.h3eckl, .h3eckr {  
-		border-top: 10px solid #00477D;
-	}
+.feckl, .feckr {  
+	border-bottom: 10px solid #00477D;
+}
+
+#wrapper #leftcol h3.moduleh3, #wrapper #rightcol h3.moduleh3	 {
+	background-color: #0066B3;
+	border-top:	1px solid #555555;
+	color: #FFFFFF;
+}
+#wrapper #leftcol h3.moduleh3	 {
+	border-left: 1px solid #999999;
+	border-right: 1px solid #555555;
+}
+#wrapper #rightcol h3.moduleh3	 {
+	border-right: 1px solid #999999;
+	border-left: 1px solid #555555;
+}
+.h3eckl, .h3eckr {  
+	border-top: 10px solid #00477D;
+}
