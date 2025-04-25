@@ -4,19 +4,6 @@
 **********************************************/
 
 /****************** LAYOUT ******************/
-
-html {
-  height : 101%;
-}
-body {
-  font-family: Verdana, Helvetica, Sans-Serif;
-  font-size:0.8em;
-  margin:0;
-  padding:0;
-  line-height:1.3em;
-  background-image:url('../images/background.png');
-  overflow-x:hidden;
-}
 #wrapper, #foot_container {
   margin: 0 auto;
 }

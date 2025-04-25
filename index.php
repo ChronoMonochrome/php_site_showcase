@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'], $_POST['pass
 }
 
 if (isset($_GET['logout'])) {
-    $user = new User($connection); // You might not need to instantiate a new User object here
     session_destroy(); // It's cleaner to just destroy the session
     header("Location: index.php");
     exit;
@@ -49,100 +48,107 @@ $title = "Главная";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Главная</title>
-       <meta http-equiv="content-type" content="text/html; charset=utf-8">
-       <link href="/theme/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-       <link rel="stylesheet" href="/site-templates/site.css" type="text/css" />
-       <link href="/site-templates/allrounder-3/css/template.css" rel="stylesheet" type="text/css" media="all" />
-<!--
-       <link href="/site-templates/allrounder-3/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
--->
-       <link href="/site-templates/allrounder-3/css/joomla.css" rel="stylesheet" type="text/css" media="all" />
-       <!--<link href="/site-templates/allrounder-3/css/colors.css" rel="stylesheet" type="text/css" media="all" />-->
-       <link href="/site-templates/allrounder-3/css/lvdropdown.css" rel="stylesheet" type="text/css" media="all" />
-       <link href="/site-templates/allrounder-3/css/typo.css" rel="stylesheet" type="text/css" media="all" />
-       <link href="/site-templates/allrounder-3/css/modules.css" rel="stylesheet" type="text/css" media="all" />
+    <title><?php echo $title; ?></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link href="/theme/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/main1.css">
+    <link href="/static/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-slider-10.6.1.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-datepicker-1.8.0.min.css" rel="stylesheet">
+
 <style>
-.spoiler-trigger{
-	color: #0b70db;
-	text-decoration: none;
-	padding-left: 15px;
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAANUlEQVQoU2PkLrj9n4EAYAQp+jpBlRGXOpA8hiJ0TaQrwuY2kDNINwnmcKLchO5LuHWEwgkAlO5FBwhFaI8AAAAASUVORK5CYII=) no-repeat 0 50%;
+.tooltip-min,
+.tooltip-max {
+  display: none
 }
-.spoiler-trigger.active{
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKklEQVQoU2PkLrj9n4EAYAQp+jpBlRGXOpA8DRRhcxvIGTSyjqDvCIUTAEcINQcERZkIAAAAAElFTkSuQmCC);
-}
-.spoiler-trigger>span{
-	border-bottom: 1px dashed #0b70db;
-	padding:0 3px;
-}
-.spoiler-trigger:hover>span{
-	border-bottom-style: solid;
-}
-.spoiler-block{
-	display: none;
+</style>
+
+<!--
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+-->
+    <script type="text/javascript" src="/static/js/jquery-1.x-git.js"></script>
+
+    <script type="text/javascript" src="/static/js/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-3.3.7.min.js"></script>
+
+
+<link rel="stylesheet" href="/static/css/template.css" type="text/css" />
+<link rel="stylesheet" href="/static/css/site.css" type="text/css" />
+<style>
+.text-large {
+  font-size: 30px;
 }
 </style>
 </head>
-<body BGCOLOR="#ffffff" text="#000000">
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul class="menu">
+                    <li><a href="/">На главную</a></li>
+                    <li><a href="/signin">Войти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
    <div id="wrapper" style="max-width:1180px;">
 
 
      <div id="header_container">
-
        <div id="header">
-
-
           <div id="logo">
-
-              <a class="imglogo" href="/index.php"><img alt="Logo" src="/site-templates/img/institut_2015_1x2_print2_2.jpg"/></a>
-		<a style="color:#0066B3;" class="logo" href="/index.php"> Государственное бюджетное  учреждение дополнительного профессионального образования  «Ставропольский краевой институт развития образования, повышения квалификации и переподготовки работников образования»</a>
-                                  </div>
-
+              <a class="imglogo" href="/"><img alt="Logo" src="/static/img/institut_2015_1x2_print2_2.jpg"/></a>
+              <a style="color:#0066B3;" class="logo" href="/"> Государственное бюджетное  учреждение дополнительного профессионального образования  «Ставропольский краевой институт развития образования, повышения квалификации и переподготовки работников образования»</a>
+          </div>
           <span class="heckl">&nbsp;</span>
           <span class="heckr">&nbsp;</span>
         </div>
        </div> <!-- header -->
      </div> <!-- header_container -->
+
+
+
    </div> <!-- wrapper -->
-<div id="container">
-    <?php if (!$currentUser): ?>
-		<br>
-		<br>
-		Пожалуйста, войдите в систему, введя логин и пароль в форму ниже:<br>
-		﻿<form method="post" action="">
-			Логин: <input type="text" name="login"
-			value="" />
-			<br/>
-			Пароль: <input type="password" name="password" value="" /><br/>
-			<input type="submit" value="Войти" />
-		</form>
-    <?php else: ?>
-        <span>Здравствуйте, Вы зашли как <?php echo htmlspecialchars($currentUser->name); ?>!</span>
-        <a href="?logout=1">Выйти</a>
-		<br>
-		<?php if (!empty($groupedFiles)): ?>
-			<?php krsort($groupedFiles); // Sort years in reverse order ?>
-			<?php foreach ($groupedFiles as $year => $files): ?>
-				<a href="#" id="a<?php echo htmlspecialchars($year); ?>" class="spoiler-trigger active">
-					<span><?php echo htmlspecialchars($year); ?> год</span>
-				</a>
-				<div id="spoiler_id<?php echo htmlspecialchars($year); ?>" class="spoiler-block" style="display: block;">
-					<ul>
-					<?php foreach ($files as $index => $file): // Use index for file ID ?>
-						<li>
-							<a href="download.php?id=<?php echo htmlspecialchars($index); ?>" download><?php echo htmlspecialchars($file['file_title']); ?></a>
-							(<?php echo htmlspecialchars($file['date']); ?>)
-						</li>
-					<?php endforeach; ?>
-					</ul>
-				</div>
-				<br>
-			<?php endforeach; ?>
-		<?php else: ?>
-			<p>No files found.</p>
-		<?php endif; ?>
-    <?php endif; ?>
-</div> <!-- container -->
+
+        <div id="container">
+            <?php if (!$currentUser): ?>
+                <div class="login-form">
+                    <br>
+                    <p>Пожалуйста, войдите в систему, введя логин и пароль в форму ниже:</p>
+                    <form method="post" action="">
+                        <label>Логин: <input type="text" name="login" value="" /></label><br />
+                        <label>Пароль: <input type="password" name="password" value="" /></label><br />
+                        <input type="submit" value="Войти" />
+                    </form>
+                </div>
+            <?php else: ?>
+                <span>Здравствуйте, Вы зашли как <?php echo htmlspecialchars($currentUser->name); ?>!</span>
+                <a href="?logout=1">Выйти</a>
+                <br>
+                <?php if (!empty($groupedFiles)): ?>
+                    <?php krsort($groupedFiles); // Sort years in reverse order ?>
+                    <?php foreach ($groupedFiles as $year => $files): ?>
+                        <a href="#" id="a<?php echo htmlspecialchars($year); ?>" class="spoiler-trigger active">
+                            <span><?php echo htmlspecialchars($year); ?> год</span>
+                        </a>
+                        <div id="spoiler_id<?php echo htmlspecialchars($year); ?>" class="spoiler-block" style="display: block;">
+                            <ul>
+                                <?php foreach ($files as $index => $file): ?>
+                                    <li>
+                                        <a href="download.php?id=<?php echo htmlspecialchars($index); ?>" download><?php echo htmlspecialchars($file['file_title']); ?></a>
+                                        (<?php echo htmlspecialchars($file['date']); ?>)
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <br>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No files found.</p>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div> <!-- container -->
+    </div> <!-- wrapper -->
 </body>
 </html>
